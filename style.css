@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0d0d0d;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* INTRO SCREEN */
+#intro {
+    position: fixed;
+    inset: 0;
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.welcome-text {
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+#logo {
+    font-size: 5rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    transition:
+        transform 1.2s ease,
+        font-size 1.2s ease,
+        top 1.2s ease,
+        left 1.2s ease,
+        opacity 0.8s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Final animated state */
+#logo.animate {
+    top: 24px;
+    left: 24px;
+    transform: translate(0, 0);
+    font-size: 2rem;
+}
+
+/* Hide intro background after animation */
+#intro.fade-out {
+    pointer-events: none;
+}
+
+#intro.fade-out .welcome-text {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+/* HEADER / MAIN SITE */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+#corner-logo {
+    opacity: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+#content {
+    opacity: 0;
+    transition: opacity 1s ease;
+    padding: 120px 40px 40px;
+}
+
+#content.show {
+    opacity: 1;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #cfcfcf;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
